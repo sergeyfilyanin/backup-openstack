@@ -1,6 +1,5 @@
     - name: Login to controller0
       shell: |
-        source ~/stackrc
         ssh heat-admin@10.165.3.139 -y
 
     - name: Install rear
