@@ -11,4 +11,4 @@
   hosts: testing
   
   roles:
-    - check-backup
+    - check-backup-controller
