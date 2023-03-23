@@ -8,7 +8,7 @@
  
 - name: "check backup"
   become_user: root
-  hosts: testing-vm
+  hosts: testing
   
   roles:
     - check-backup
