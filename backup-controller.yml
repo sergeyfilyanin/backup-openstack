@@ -1,6 +1,5 @@
 ---
 - name: "backup controller"
-  become_user: stack
   hosts: undercloud
 
   roles:
