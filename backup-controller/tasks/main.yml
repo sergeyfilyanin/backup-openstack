@@ -1,6 +1,5 @@
-    - name: Login to controller0
-      shell: |
-        ssh -oStrictHostKeyChecking=no heat-admin@10.165.3.139
+    - name: Login to controller 0
+      shell: ssh heat-admin@10.165.3.139
 
     - name: Install rear
       shell: |
