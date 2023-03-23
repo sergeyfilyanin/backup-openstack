@@ -15,6 +15,7 @@
       shell: sudo touch /etc/rear/local.conf
         
     - name: Edit rear file
+      become: yes
       ansible.builtin.blockinfile:
         path: /etc/rear/local.conf
         block: |
