@@ -24,10 +24,15 @@
           BACKUP_URL=nfs://92.204.53.126/nfs
           BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
           NETFS_KEEP_OLD_BACKUP_COPY
- 
-    - name: Run backup
-      shell: |
-        rear -d -v mkbackup
+
     - name: Start OpenStack Services
       shell: |
-        sudo systemctl start 'openstack-*' httpd haproxy mariadb 'rabbitmq*' docker xinetd
+        sudo pcs cluster stop
+        
+    - name: Run backup
+      shell: |
+        sudo rear -d -v mkbackup
+
+    - name: Start OpenStack Services
+      shell: |
+        sudo pcs cluster start
