@@ -1,8 +1,4 @@
-- name: "backup director"
-  hosts: undercloud
-  become: yes
 
-  tasks:
     - name: Disable OpenStack Services
       shell: |
         sudo systemctl stop 'openstack-*' httpd haproxy mariadb 'rabbitmq*' docker xinetd
