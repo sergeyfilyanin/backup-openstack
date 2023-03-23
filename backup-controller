@@ -1,0 +1,14 @@
+---
+- name: "backup controller"
+  become_user: root
+  hosts: controller
+
+  roles:
+    - backup-controller
+ 
+- name: "check backup"
+  become_user: root
+  hosts: testing
+  
+  roles:
+    - check-backup
