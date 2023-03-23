@@ -1,6 +1,9 @@
     - name: Show backup files
       shell: |
         ls -sh /nfs/director/
+      register: results
+    - debug:
+        var: results.stdout_lines     
 
     - name: Tail backup log
       shell: |
