@@ -9,7 +9,7 @@
     
     - name: Remove Previous Conf
       shell: |
-        sudo -rm rf /etc/rear/local.conf -y
+        sudo rm rf /etc/rear/local.conf
     
     - name: Create new file
       shell: sudo touch /etc/rear/local.conf
