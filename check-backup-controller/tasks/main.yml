@@ -1,0 +1,6 @@
+    - name: Show backup files
+      shell: |
+        ls -sh /nfs
+      register: results
+    - debug:
+        var: results.stdout_lines     
