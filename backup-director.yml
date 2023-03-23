@@ -1,8 +1,14 @@
 ---
 - name: "backup undercloud"
   become_user: root
-
+  hosts: undercloud
 
   roles:
     - backup-director
+ 
+- name: "check backup"
+  become_user: root
+  hosts: testing-vm
+  
+  roles:
     - check-backup
