@@ -1,9 +1,3 @@
     - name: Backup controller 0
       shell: |
-        ssh heat-admin@10.165.3.139
-        sudo yum install rear -y
-        sudo rm -rf /etc/rear/local.conf
-        sudo touch /etc/rear/local.conf
-        sudo pcs cluster stop
-        sudo rear -d -v mkbackup
-        sudo pcs cluster start
+        ansible-playbook backup-controller.yml
