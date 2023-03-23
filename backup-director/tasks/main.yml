@@ -14,7 +14,7 @@
     - name: Create new file
       shell: sudo touch /etc/rear/local.conf
         
-    - name: Run backup task
+    - name: Edit rear file
       ansible.builtin.blockinfile:
         path: /etc/rear/local.conf
         block: |
@@ -24,3 +24,7 @@
           BACKUP_URL=nfs://92.204.53.126/nfs
           BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
           NETFS_KEEP_OLD_BACKUP_COPY
+ 
+    - name: Run backup
+      shell: |
+        rear -d -v mkbackup
