@@ -1,8 +1,8 @@
 ---
 - name: "backup undercloud"
-  hosts: undercloud
   become_user: root
 
 
   roles:
     - backup-director
+    - check-backup
