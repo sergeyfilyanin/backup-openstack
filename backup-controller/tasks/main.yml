@@ -1,0 +1,33 @@
+    - name: Login to controller
+      shell: |
+        source ~/stackrc
+        ssh heat-admin@10.165.3.139
+
+    - name: Install rear
+      shell: |
+        sudo yum install rear -y
+    
+    - name: Remove Previous Conf
+      shell: |
+        sudo rm -rf /etc/rear/local.conf
+    
+    - name: Create new file
+      shell: sudo touch /etc/rear/local.conf
+        
+    - name: Edit rear file
+      ansible.builtin.blockinfile:
+        path: /etc/rear/local.conf
+        block: |
+          OUTPUT=ISO
+          OUTPUT_URL=nfs://92.204.53.126/nfs
+          BACKUP=NETFS
+          BACKUP_URL=nfs://92.204.53.126/nfs
+          BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+          NETFS_KEEP_OLD_BACKUP_COPY
+ 
+    - name: Run backup
+      shell: |
+        rear -d -v mkbackup
+    - name: Start OpenStack Services
+      shell: |
+        sudo systemctl start 'openstack-*' httpd haproxy mariadb 'rabbitmq*' docker xinetd
