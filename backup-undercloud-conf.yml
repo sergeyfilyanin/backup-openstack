@@ -1,24 +1,7 @@
-    - name: Archive undercloud-backup
-      shell: tar -czvf /tmp/undercloud-backup.tar.gz /etc/* /var/lib/glance/* /var/lib/certmonger/* /var/lib/docker/* /var/lib/registry/* /srv/node/*
+---
+- name: "backup undercloud"
+  become_user: root
+  hosts: undercloud
 
-    - name: Copy to local vm 
-      fetch: 
-        src: /tmp/undercloud-backup.tar.gz
-		dest: /opt/archives/undercloud-backup.tar.gz
-
-    - name: Remove archive
-      shell: |
-        rm -rf /tmp/undercloud-backup.tar.gz	
-		
-    - name: Archive stack files
-      shell: |
-        tar -czvf /tmp/stack.tar.gz /home/stack/
-		
-    - name: Copy to local vm
-      fetch: 
-        src: /tmp/stack.tar.gz
-		dest: /opt/archives/stack.tar.gz
-		
-    - name: Remove archive
-      shell: |
-        rm -rf /tmp/stack.tar.gz
+  roles:
+    - backup-undercloud-conf
