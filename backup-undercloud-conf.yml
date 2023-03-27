@@ -1,10 +1,10 @@
 ---
-- name: "backup undercloud"
-  become_user: root
-  hosts: undercloud
+#- name: "backup undercloud"
+#  become_user: root
+#  hosts: undercloud
 
-  roles:
-    - backup-undercloud-conf
+#  roles:
+#    - backup-undercloud-conf
 
 - name: "copy files to nginx"
   become_user: root
