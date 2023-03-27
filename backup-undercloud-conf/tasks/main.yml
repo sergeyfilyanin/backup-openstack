@@ -4,7 +4,7 @@
     - name: Copy to local vm 
       fetch: 
         src: /tmp/undercloud-backup.tar.gz
-		    dest: /opt/archives/undercloud-backup.tar.gz
+	dest: /opt/archives/undercloud-backup.tar.gz
 
     - name: Remove archive
       shell: |
@@ -17,7 +17,7 @@
     - name: Copy to local vm
       fetch: 
         src: /tmp/stack.tar.gz
-		    dest: /opt/archives/stack.tar.gz
+	dest: /opt/archives/stack.tar.gz
 		
     - name: Remove archive
       shell: |
