@@ -1,5 +1,11 @@
-- name: Copy a "sudoers" file on the remote machine for editing
-  copy:
-    src: /users/rolando/myfile
-    dest: /home/rolando/myfile
-    remote_src: yes 
+    - name: Copy archive to nginx
+      copy:
+        src: /opt/archives/undercloud-backup.tar.gz
+        dest: /opt/archives/undercloud-backup.tar.gz
+        remote_src: yes 
+
+    - name: Copy archive to nginx
+      copy:
+        src: /opt/archives/stack.tar.gz
+        dest: /opt/archives/stack.tar.gz
+        remote_src: yes 
