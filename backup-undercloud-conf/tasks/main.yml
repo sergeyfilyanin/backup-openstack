@@ -1,6 +1,6 @@
     - name: Archive undercloud-backup
-      shell: tar -czvf /tmp/undercloud-backup.tar.gz /etc/* /var/lib/glance/* /var/lib/certmonger/* /var/lib/docker/* /var/lib/registry/* /srv/node/*
-
+      shell: tar -czvf /tmp/undercloud-backup.tar.gz /etc/*
+      
     - name: Copy to local vm 
       fetch: 
         src: /tmp/undercloud-backup.tar.gz
