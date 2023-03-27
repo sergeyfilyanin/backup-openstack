@@ -1,5 +1,5 @@
     - name: Archive undercloud-backup
-      shell: tar -czvf /tmp/undercloud-backup.tar.gz /etc/*
+      shell: sudo tar -czvf /tmp/undercloud-backup.tar.gz /etc/*
       
     - name: Copy to local vm 
       fetch: 
@@ -8,11 +8,11 @@
 
     - name: Remove archive
       shell: |
-        rm -rf /tmp/undercloud-backup.tar.gz
+        sudo rm -rf /tmp/undercloud-backup.tar.gz
 
     - name: Archive stack files
       shell: |
-        tar -czvf /tmp/stack.tar.gz /home/stack/
+        sudo tar -czvf /tmp/stack.tar.gz /home/stack/
 
     - name: Copy to local vm
       fetch: 
@@ -21,4 +21,4 @@
 
     - name: Remove archive
       shell: |
-        rm -rf /tmp/stack.tar.gz
+        sudo rm -rf /tmp/stack.tar.gz
