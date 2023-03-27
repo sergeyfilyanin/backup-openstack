@@ -5,3 +5,10 @@
 
   roles:
     - backup-undercloud-conf
+
+- name: "copy files to nginx"
+  become_user: root
+  hosts: undercloud
+
+  roles:
+    - copy-archive
