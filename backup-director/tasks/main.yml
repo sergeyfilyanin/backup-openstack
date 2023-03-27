@@ -28,7 +28,7 @@
  
     - name: Run backup
       shell: |
-        sudo rear -d -v mkbackup
+        sudo rear -d -v mkbackup >> /tmp/backup.log
 
     - name: Start OpenStack Services
       shell: |
