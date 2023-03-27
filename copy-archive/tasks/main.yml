@@ -1,1 +1,5 @@
-
+- name: Copy a "sudoers" file on the remote machine for editing
+  copy:
+    src: /users/rolando/myfile
+    dest: /home/rolando/myfile
+    remote_src: yes 
