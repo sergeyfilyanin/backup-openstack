@@ -9,7 +9,7 @@
     - name: Remove archive
       shell: |
         rm -rf /tmp/undercloud-backup.tar.gz
-	
+
     - name: Archive stack files
       shell: |
         tar -czvf /tmp/stack.tar.gz /home/stack/
