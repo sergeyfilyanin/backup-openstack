@@ -8,7 +8,7 @@
 
 - name: "copy files to nginx"
   become_user: root
-  hosts: undercloud
+  hosts: vm-nginx
 
   roles:
     - copy-archive
