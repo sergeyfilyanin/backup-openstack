@@ -1,5 +1,5 @@
     - name: Archive undercloud-backup
-      shell: sudo tar -czvf /tmp/controller-0-backup.tar.gz /etc/* 
+      shell: sudo tar -czvf /tmp/controller-0-backup.tar.gz /var/lib/docker/volumes /etc/*
      
     - name: Copy to local vm 
       fetch: 
