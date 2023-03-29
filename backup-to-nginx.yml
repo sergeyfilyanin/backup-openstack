@@ -1,6 +1,6 @@
 - name: "copy backup"
   become_user: root
-  hosts: nginx-vm
+  hosts: vm-nginx
   
   roles:
     - copy-archive-controller-0
