@@ -4,10 +4,3 @@
 
   roles:
     - backup-controller-0
- 
-- name: "check backup"
-  become_user: root
-  hosts: nginx-vm
-  
-  roles:
-    - check-backup-controller
