@@ -1,0 +1,13 @@
+---
+- name: "backup conf controller 0"
+  hosts: controller0
+
+  roles:
+    - backup-conf-controller-0
+
+- name: "check backup"
+  become_user: root
+  hosts: nginx-vm
+  
+  roles:
+    - copy-archive-controller-0
