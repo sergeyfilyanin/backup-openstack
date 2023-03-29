@@ -1,9 +1,9 @@
 ---
-- name: "backup controller"
+- name: "backup controller 1"
   hosts: undercloud
 
   roles:
-    - backup-controller
+    - backup-controller-1
  
 - name: "check backup"
   become_user: root
