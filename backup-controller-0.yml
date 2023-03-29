@@ -7,7 +7,7 @@
  
 - name: "check backup"
   become_user: root
-  hosts: testing
+  hosts: nginx-vm
   
   roles:
     - check-backup-controller
