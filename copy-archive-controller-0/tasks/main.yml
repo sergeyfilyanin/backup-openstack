@@ -1,0 +1,9 @@
+    - name: Copy archive to nginx
+      copy:
+        src: /opt/archives/controller-0-backup.tar.gz
+        dest: /opt/archives/controller-0-backup.tar.gz
+        
+    - name: Copy archive to nginx
+      copy:
+        src: /opt/archives/controller-0-backup.tar.gz
+        dest: /opt/archives/controller-0-backup.tar.gz
