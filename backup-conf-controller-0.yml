@@ -4,10 +4,3 @@
 
   roles:
     - backup-conf-controller-0
-
-- name: "copy backup"
-  become_user: root
-  hosts: nginx-vm
-  
-  roles:
-    - copy-archive-controller-0
