@@ -1,0 +1,13 @@
+---
+- name: "backup controller 0"
+  hosts: undercloud
+
+  roles:
+    - backup-controller-0
+ 
+- name: "check backup"
+  become_user: root
+  hosts: testing
+  
+  roles:
+    - check-backup-controller
