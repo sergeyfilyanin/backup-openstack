@@ -1,0 +1,11 @@
+    - name: Archive undercloud-backup
+      shell: sudo tar -czvf /tmp/controller-0-backup.tar.gz /etc/* /var/lib/docker/*
+     
+    - name: Copy to local vm 
+      fetch: 
+        src: /tmp/controller-0-backup.tar.gz
+        dest: /opt/archives/controller-0-backup.tar.gz
+
+    - name: Remove archive
+      shell: |
+        sudo rm -rf /tmp/controller-0-backup.tar.gz
