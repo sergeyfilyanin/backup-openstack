@@ -25,3 +25,21 @@
           BACKUP_URL=nfs://192.168.56.1/storage
           BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
           NETFS_KEEP_OLD_BACKUP_COPY=
+
+    - name: Stanby node
+      shell: sudo pcs node standby overcloud-controller-0
+      
+    - name: Stop docker
+      shell: sudo docker stop $(docker ps -aq)
+      
+    - name: Run backup
+      shell: sudo rear -d -v mkbackup
+      
+    - name: Unstanby node
+      shell: sudo pcs node unstandby overcloud-controller-0
+
+    - name: Reboot after backup
+      ansible.builtin.reboot:
+        test_command: uptime
+      become: yes
+    - debug: msg="Controller0 was restarted successfully"
