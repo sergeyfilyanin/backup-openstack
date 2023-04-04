@@ -11,7 +11,11 @@
     - name: Remove previous configuration
       shell: sudo rm -rf /etc/rear/local.conf
 
+    - name: Create conf file
+      shell: sudo touch /etc/rear/local.conf
+      
     - name: Insert new conf
+      become: yes 
       ansible.builtin.blockinfile:
         path: /etc/rear/local.conf
         block: |
