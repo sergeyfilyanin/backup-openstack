@@ -7,3 +7,12 @@
 
     - name: Install rear
       shell: sudo yum install rear -y
+      
+    - name: Remove previous configuration
+      shell: sudo rm -rf /etc/rear/local.conf
+
+    - name: Insert new conf
+      ansible.builtin.blockinfile:
+        path: /etc/rear/local.conf
+        block: |
+          
