@@ -15,4 +15,9 @@
       ansible.builtin.blockinfile:
         path: /etc/rear/local.conf
         block: |
-          
+          OUTPUT=ISO
+          OUTPUT_URL=nfs://192.168.56.1/storage
+          BACKUP=NETFS
+          BACKUP_URL=nfs://192.168.56.1/storage
+          BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+          NETFS_KEEP_OLD_BACKUP_COPY=
