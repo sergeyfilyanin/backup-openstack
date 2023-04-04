@@ -1,6 +1,6 @@
 ---
 - name: "backup controller 0"
-  hosts: undercloud
+  hosts: controller0
 
   roles:
     - backup-controller-0
