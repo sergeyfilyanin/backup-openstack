@@ -30,6 +30,7 @@
       shell: sudo pcs node standby overcloud-controller-0
       
     - name: Stop docker
+      become: yes
       shell: sudo docker stop $(docker ps -aq)
       
     - name: Run backup
