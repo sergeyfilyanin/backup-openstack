@@ -31,7 +31,7 @@
       
     - name: Stop docker
       become: yes
-      shell: sudo docker stop $(docker ps -aq)
+      shell: sudo docker stop $(sudo docker ps -aq)
       
     - name: Run backup
       shell: sudo rear -d -v mkbackup
